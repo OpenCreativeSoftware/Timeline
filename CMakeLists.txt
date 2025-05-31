@@ -10,6 +10,3 @@ string(TIMESTAMP Timeline_Timestamp)
 
 add_subdirectory(ext)
 add_subdirectory(app)
-
-set_property(TARGET Timeline PROPERTY CXX_STANDARD 20)
-set_property(TARGET Timeline PROPERTY CXX_STANDARD_REQUIRED ON)

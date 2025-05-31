@@ -23,7 +23,15 @@ namespace OpenCreativeSoftware {
 			setGeometry(0, 0, display->availableGeometry().width(), display->availableGeometry().height());
 		}
 		setWindowState(Qt::WindowMaximized);
-		setCentralWidget(new QLabel(tr("Hello, OCS Timeline!")));
+
+		ads::CDockManager::setConfigFlag(ads::CDockManager::DefaultOpaqueConfig);
+		ads::CDockManager::setConfigFlag(ads::CDockManager::DockAreaDynamicTabsMenuButtonVisibility);
+		ads::CDockManager::setConfigFlag(ads::CDockManager::FocusHighlighting);
+		ads::CDockManager::setConfigFlag(ads::CDockManager::AlwaysShowTabs);
+		this->m_dockManager = new ads::CDockManager(this);
+		auto* dockWidget = new ads::CDockWidget(tr("OCS Timeline"));
+		dockWidget->setWidget(new QLabel(tr("Dock Widget")));
+		m_dockManager->addDockWidget(ads::CenterDockWidgetArea, dockWidget);
 	}
 
 	void MainWindow::closeEvent(QCloseEvent* t_event) {
