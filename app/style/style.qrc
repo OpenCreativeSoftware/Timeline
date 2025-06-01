@@ -1,0 +1,6 @@
+<RCC>
+    <qresource prefix="/ocs">
+        <file>docking.css</file>
+        <file>ui.css</file>
+    </qresource>
+</RCC>

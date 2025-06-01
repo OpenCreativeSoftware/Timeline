@@ -1,0 +1,50 @@
+/* Default dark theme for OCS Timeline */
+
+QToolBar {
+    border: 2px solid rgb(0, 0, 0);
+}
+
+QWidget[lightHeader="true"] {
+    background: rgb(50, 50, 50);
+}
+
+QPushButton {
+    border: 2px solid;
+    border-color: rgb(75, 75, 75);
+    color: rgb(176, 176, 176);
+    background-color: palette(window);
+    font-weight: bold;
+}
+
+QPushButton:hover {
+    border-color: rgb(106, 106, 106);
+    color: rgb(208, 208, 208);
+    background-color: rgb(75, 75, 75);
+}
+
+QPushButton:pressed {
+    border-color: rgb(138, 138, 138);
+    color: white;
+    background-color: rgb(108, 108, 108)
+}
+
+QPushButton[default="true"] {
+    border: 0px solid;
+    background-color: rgb(6, 108, 231);
+    color: white;
+}
+
+QPushButton[default="true"]:hover {
+    background-color: rgb(0, 92, 200);
+    color: rgb(208, 208, 208);
+}
+
+QPushButton[default="true"]:pressed {
+    background-color: rgb(0, 69, 158);
+    color: rgb(178, 178, 178);
+}
+
+QPushButton[default="true"]:focus {
+    outline: 2px solid rgb(65, 152, 242);
+    outline-offset: 2px 2px
+}
