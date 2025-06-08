@@ -17,6 +17,8 @@ namespace OpenCreativeSoftware {
 
 	public slots:
 		void OpenGithubPage();
+	signals:
+		void OnNewProjectButtonClicked();
 	public:
 		QVBoxLayout* mainLayout;
 

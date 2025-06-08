@@ -87,7 +87,7 @@ ads--CDockWidgetTab[activeTab="true"] QLabel {
     background: none;
     border: none;
     padding: 0px -2px;
-    qproperty-iconSize: 16px;
+    qproperty-iconSize: 10px;
 }
 
 #tabCloseButton:hover {

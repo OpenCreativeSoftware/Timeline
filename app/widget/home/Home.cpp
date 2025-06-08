@@ -17,7 +17,8 @@ namespace OpenCreativeSoftware {
 		searchIcon->setIcon(FontAwesome::s_instance->icon(fa_solid, fa_magnifying_glass));
 		projectFilterLineEdit->addAction(searchIcon, QLineEdit::ActionPosition::LeadingPosition);
 		projectFilterLineEdit->setPlaceholderText(tr("Search Projects..."));
-		projectFilterLineEdit->setStyleSheet("height: 20px;");
+		projectFilterLineEdit->setStyleSheet("height: 24px;");
+		projectFilterLineEdit->setProperty("light", true);
 		headerLayout->addWidget(ocsIcon);
 		headerLayout->addStretch();
 		headerLayout->addWidget(projectFilterLineEdit);
@@ -81,6 +82,7 @@ namespace OpenCreativeSoftware {
 		mainLayout->setContentsMargins(0, 0, 0, 0);
 		setLayout(mainLayout);
 
+		connect(newProjectButton, &QPushButton::clicked, this, &HomeWidget::OnNewProjectButtonClicked);
 		connect(githubButton, &QPushButton::clicked, this, &HomeWidget::OpenGithubPage);
 
 		resize(800, 600);
@@ -88,6 +90,7 @@ namespace OpenCreativeSoftware {
 		setWindowFlags(windowFlags() & ~Qt::WindowMaximizeButtonHint & ~Qt::WindowMinimizeButtonHint);
 		setWindowIcon(FontAwesome::s_instance->icon(fa_solid, fa_home));
 	}
+
 
 	void HomeWidget::OpenGithubPage() {
 		QDesktopServices::openUrl(QUrl("https://github.com/OpenCreativeSoftware/Timeline"));

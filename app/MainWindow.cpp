@@ -6,6 +6,7 @@
 
 #include "MainWindow.h"
 #include "FontAwesome.h"
+#include "widget/project_setup/ProjectSetup.h"
 
 static void initResources() {
 	Q_INIT_RESOURCE(style);
@@ -77,12 +78,24 @@ namespace OpenCreativeSoftware {
 
 		this->m_homeWidget = new HomeWidget(this);
 
+		connect(m_homeWidget, &HomeWidget::OnNewProjectButtonClicked, this, &MainWindow::OpenNewProjectSetup);
+
 		createActions();
 		createMenus();
 		createToolbars();
 
 		setUnifiedTitleAndToolBarOnMac(true);
 		setAutoFillBackground(true);
+	}
+
+	void MainWindow::OpenNewProjectSetup() {
+		ProjectSetupWidget setupDialog(this);
+		if (setupDialog.exec() == QDialog::Accepted) {
+			// proceed to creating a project
+		}
+		else {
+			qDebug() << "project setup dialog was rejected";
+		}
 	}
 
 	void MainWindow::OpenHomeWidget() {
@@ -94,6 +107,10 @@ namespace OpenCreativeSoftware {
 	}
 
 	void MainWindow::createActions() {
+		m_newProjectAction = new QAction(tr("New Project"), this);
+		m_newProjectAction->setShortcut(QKeySequence("Ctrl+Alt+N"));
+		connect(m_newProjectAction, &QAction::triggered, this, &MainWindow::OpenNewProjectSetup);
+
 		m_homeAction = new QAction(tr("Home"), this);
 		m_homeAction->setIcon(FontAwesome::s_instance->icon(fa_solid, fa_home));
 		connect(m_homeAction, &QAction::triggered, this, &MainWindow::OpenHomeWidget);
@@ -106,6 +123,10 @@ namespace OpenCreativeSoftware {
 	void MainWindow::createMenus() {
 		menuBar()->setNativeMenuBar(true);
 		m_fileMenu = menuBar()->addMenu(tr("File"));
+		
+		QMenu* newMenu = m_fileMenu->addMenu(tr("New"));
+		newMenu->addAction(m_newProjectAction);
+
 		m_fileMenu->addSeparator();
 		m_fileMenu->addAction(m_homeAction);
 		m_fileMenu->addSeparator();

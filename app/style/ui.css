@@ -48,3 +48,24 @@ QPushButton[default="true"]:focus {
     outline: 2px solid rgb(65, 152, 242);
     outline-offset: 2px 2px
 }
+
+QLineEdit {
+    background-color: black;
+    border: 1px solid rgb(48, 48, 48);
+    height: 22px;
+    border-radius: 2px;
+}
+
+QLineEdit:focus {
+    border: 2px solid rgb(65, 152, 242);
+}
+
+QLineEdit[light="true"] {
+    background-color: rgb(37, 37, 37);
+    border: 2px solid rgb(55, 55, 55);
+    border-radius: 2px;
+}
+
+QLineEdit[light="true"]:focus {
+    border: 2px solid rgb(65, 152, 242);
+}

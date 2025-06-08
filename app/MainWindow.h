@@ -17,6 +17,7 @@ namespace OpenCreativeSoftware {
 		MainWindow();
 
 	public slots:
+		void OpenNewProjectSetup();
 		void OpenHomeWidget();
 		void ExitAction();
 
@@ -34,6 +35,7 @@ namespace OpenCreativeSoftware {
 
 		QToolBar* m_mainToolBar;
 
+		QAction* m_newProjectAction;
 		QAction* m_homeAction;
 		QAction* m_exitAction;
 	};
